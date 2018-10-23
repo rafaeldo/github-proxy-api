@@ -1,0 +1,23 @@
+{
+  "name": "github-proxy-api",
+  "version": "1.0.0",
+  "description": "A Proxy Server for Github API",
+  "private": true,
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "start": "node ./server/server.js"
+  },
+  "author": "Rafael de Oliveira",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.13.1",
+    "morgan": "^1.6.1",
+    "node-fetch": "^2.2.0"
+  },
+  "devDependencies": {
+    "dotenv": "^6.1.0"
+  }
+}
