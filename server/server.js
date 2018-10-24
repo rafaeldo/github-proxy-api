@@ -56,6 +56,32 @@ app.get("/users", function(req, res, next) {
     .catch(e => next(e))
 })
 
+// - Get Single User
+app.get("/users/:username", function(req, res, next) {
+  const username = req.params.username
+
+  // Call the Github API
+  fetch(
+    baseURL +
+      "/users/" +
+      username +
+      "?client_id=" +
+      clientId +
+      "&client_secret=" +
+      clientSecret,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: acceptV3
+      }
+    }
+  )
+    .then(data => data.json())
+    .then(json => res.json(json))
+    .catch(e => next(e))
+})
+
 // MIDDLEWARE - 'NOT FOUND'
 app.use(function(req, res, next) {
   res.status(404)
