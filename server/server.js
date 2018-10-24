@@ -2,6 +2,7 @@ const app = require("express")()
 const morgan = require("morgan")
 const fetch = require("node-fetch")
 const cors = require("cors")
+const parseLinkHeader = require("parse-link-header")
 require("dotenv").config()
 
 // MIDDLEWARE
@@ -43,7 +44,9 @@ app.get("/users", function(req, res, next) {
     }
   )
     .then(data => {
-      res.set("link", data.headers.raw().link)
+      const parsed = parseLinkHeader(data.headers.raw().link[0])
+      res.set("Access-Control-Expose-Headers", "next")
+      res.set("next", "?since=" + parsed.next.since)
       return data.json()
     })
     .then(json => {
