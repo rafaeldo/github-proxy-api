@@ -1,6 +1,6 @@
 # Github proxy API
 
-A Express App (Node.js) proxy API to get all Users from Github's API.
+A Express App (Node.js) proxy API to get Users and Repos from Github's API.
 You can learn more at: https://developer.github.com/v3/
 
 ## Getting Started
