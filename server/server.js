@@ -3,10 +3,12 @@ const morgan = require("morgan")
 const fetch = require("node-fetch")
 const cors = require("cors")
 const parseLinkHeader = require("parse-link-header")
+const helmet = require('helmet')
 require("dotenv").config()
 
 // MIDDLEWARE
 app.use(morgan("dev"))
+app.use(helmet())
 const corsOptions = require("./corsOptions")
 app.use(cors(corsOptions))
 
